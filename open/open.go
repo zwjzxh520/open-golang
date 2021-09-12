@@ -48,3 +48,18 @@ func RunWith(input string, appName string) error {
 func StartWith(input string, appName string) error {
 	return openWith(input, appName).Start()
 }
+
+func RunUseArgs(input string, args []string) error {
+	return openWithArgs(input, args).Run()
+}
+
+func StartUseArgs(input string, args []string) error {
+	return openWithArgs(input, args).Start()
+}
+
+func StartRevealItem(input string) error {
+	return revealItem(input).Start()
+}
+func RunRevealItem(input string) error {
+	return revealItem(input).Run()
+}

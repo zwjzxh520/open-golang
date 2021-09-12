@@ -1,3 +1,4 @@
+//go:build !windows && !darwin
 // +build !windows,!darwin
 
 package open
@@ -15,4 +16,12 @@ func open(input string) *exec.Cmd {
 
 func openWith(input string, appName string) *exec.Cmd {
 	return exec.Command(appName, input)
+}
+func openWithArgs(input string, args []string) *exec.Cmd {
+	args = append(args, input)
+	return exec.Command("xdb-open", args...)
+}
+
+func revealItem(input string) *exec.Cmd {
+	return open(input)
 }
